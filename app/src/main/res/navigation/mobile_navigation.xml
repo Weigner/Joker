@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.weigner.joker.HomeFragment"
+        android:name="com.weigner.joker.fragment.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_joke_day"
-        android:name="com.weigner.joker.JokeDayFragment"
+        android:name="com.weigner.joker.fragment.JokeDayFragment"
         android:label="@string/menu_joke_day"
         tools:layout="@layout/fragment_joke_day" />
 
     <fragment
         android:id="@+id/nav_about"
-        android:name="com.weigner.joker.AboutFragment"
+        android:name="com.weigner.joker.fragment.AboutFragment"
         android:label="@string/menu_about"
         tools:layout="@layout/fragment_about" />
 
