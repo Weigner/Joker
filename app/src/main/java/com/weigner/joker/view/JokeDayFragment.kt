@@ -1,4 +1,4 @@
-package com.weigner.joker.fragment
+package com.weigner.joker.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
