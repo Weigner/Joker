@@ -2,18 +2,20 @@ package com.weigner.joker.presetation
 
 import android.os.Handler
 import android.os.Looper
+import com.weigner.joker.data.CategoryRemote
+import com.weigner.joker.data.ListCategoryCallback
 import com.weigner.joker.model.Category
 import com.weigner.joker.view.CategoryItem
 import com.weigner.joker.view.HomeFragment
 
-class HomePresenter(private val view: HomeFragment) {
+class HomePresenter(private val view: HomeFragment, private val dataSource: CategoryRemote = CategoryRemote()) : ListCategoryCallback {
 
     fun findAllCategories() {
         view.showProgress()
-        fakeRequest()
+        dataSource.findAllCategories(this)
     }
 
-    private fun onSuccess(response: List<String>) {
+    override fun onSuccess(response: List<String>) {
 
         /*val categories = mutableListOf<CategoryItem>()
 
@@ -25,30 +27,11 @@ class HomePresenter(private val view: HomeFragment) {
         view.showCategories(categories)
     }
 
-    private fun onError(message: String) {
-        view.showFailure(message)
+    override fun onError(response: String) {
+        view.showFailure(response)
     }
 
-    private fun onComplete() {
+    override fun onComplete() {
         view.hideProgress()
-    }
-
-    private fun fakeRequest() {
-        Handler(Looper.getMainLooper()).postDelayed({
-            val response = arrayListOf(
-                "Categoria 1",
-                "Categoria 2",
-                "Categoria 3",
-                "Categoria 4",
-                "Categoria 5",
-                "Categoria 6"
-            )
-
-            onSuccess(response)
-
-            //onError("Falha")
-
-            onComplete()
-        }, 2000)
     }
 }

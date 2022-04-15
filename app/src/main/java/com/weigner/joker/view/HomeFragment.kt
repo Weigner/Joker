@@ -12,6 +12,7 @@ import androidx.lifecycle.Transformations.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.weigner.joker.R
+import com.weigner.joker.data.CategoryRemote
 import com.weigner.joker.model.Category
 import com.weigner.joker.presetation.HomePresenter
 import com.weigner.joker.view.CategoryItem
