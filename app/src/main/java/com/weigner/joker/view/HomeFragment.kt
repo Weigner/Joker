@@ -48,7 +48,9 @@ class HomeFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_home)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        presenter.findAllCategories()
+        if (adapter.itemCount == 0) {
+            presenter.findAllCategories()
+        }
 
         recyclerView.adapter = adapter
 
