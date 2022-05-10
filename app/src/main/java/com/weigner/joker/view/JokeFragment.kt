@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.squareup.picasso.Picasso
 import com.weigner.joker.R
 import com.weigner.joker.model.Joke
 import com.weigner.joker.presetation.JokePresenter
@@ -49,7 +50,7 @@ class JokeFragment : Fragment() {
 
         progressBar = view.findViewById(R.id.progress_bar)
         textJoke = view.findViewById(R.id.text_joke)
-        //imageJoke = view.findViewById(R.id.image_joke)
+        imageJoke = view.findViewById(R.id.image_joke)
 
         view.findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             presenter.findByCategory(categoryName)
@@ -60,7 +61,7 @@ class JokeFragment : Fragment() {
 
     fun showJoke(joke: Joke) {
         textJoke.text = joke.textJoke
-        //TODO()IMAGEM
+        Picasso.get().load(joke.iconUrl).into(imageJoke)
     }
 
     fun showProgress() {
